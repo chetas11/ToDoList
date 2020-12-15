@@ -1,6 +1,6 @@
 # ToDoList
 
-#### Description - A Simple ToDoList App for people to organize, plan and collaborate on projects, both big and small. tap on tasks once your done with it
+#### Description - A Simple ToDoList App for people to organize, plan and collaborate on projects, both big and small. tap on tasks once you are done with it
 
 #### Working Link Deployed using Netlify - https://chetas11-todolist.netlify.app/
 
