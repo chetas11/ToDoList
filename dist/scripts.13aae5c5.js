@@ -29786,7 +29786,29 @@ function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
 var App = function App() {
-  return /*#__PURE__*/_react.default.createElement("h1", null, "Hello");
+  var tasks = ["Buy House", "Buy Car", "Go to katar"];
+  return /*#__PURE__*/_react.default.createElement("div", {
+    className: "container mt-5"
+  }, /*#__PURE__*/_react.default.createElement("div", {
+    className: "row"
+  }, /*#__PURE__*/_react.default.createElement("div", {
+    className: "col-lg-4 col-md-4 col-sm-4"
+  }), /*#__PURE__*/_react.default.createElement("div", {
+    className: "col-lg-4 col-md-4 col-sm-4"
+  }, /*#__PURE__*/_react.default.createElement("h1", {
+    className: "text-light text-center bg-dark"
+  }, "ToDoList"), /*#__PURE__*/_react.default.createElement("input", {
+    className: "form-control my-4",
+    placeholder: "Enter new task"
+  }), /*#__PURE__*/_react.default.createElement("button", {
+    className: "btn btn-md btn-primary"
+  }, "+Add"), /*#__PURE__*/_react.default.createElement("ul", {
+    className: "mt-3"
+  }, tasks.map(function (each) {
+    return /*#__PURE__*/_react.default.createElement("li", null, each);
+  }))), /*#__PURE__*/_react.default.createElement("div", {
+    className: "col-lg-4 col-md-4 col-sm-4"
+  })));
 };
 
 _reactDom.default.render( /*#__PURE__*/_react.default.createElement(App, null), document.querySelector('#react-root'));
@@ -29818,7 +29840,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49177" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49568" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
