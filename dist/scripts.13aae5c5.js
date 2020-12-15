@@ -29861,7 +29861,7 @@ var App = function App() {
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: "col-lg-4 col-md-4 col-sm-4"
   }), /*#__PURE__*/_react.default.createElement("div", {
-    className: "col-lg-4 col-md-4 col-sm-4"
+    className: "col-lg-4 col-md-4 col-sm-4 main"
   }, /*#__PURE__*/_react.default.createElement("h1", {
     className: "text-light text-center bg-dark"
   }, "ToDoList"), /*#__PURE__*/_react.default.createElement("input", {
@@ -29872,7 +29872,7 @@ var App = function App() {
     placeholder: "Enter new task"
   }), /*#__PURE__*/_react.default.createElement("button", {
     onClick: AddnewTask,
-    className: "btn btn-md btn-primary"
+    className: "btn btn-md btn-dark"
   }, "+Add"), /*#__PURE__*/_react.default.createElement("ul", {
     className: "mt-3"
   }, tasks.map(function (task, taskindex) {
@@ -29918,7 +29918,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50514" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51421" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

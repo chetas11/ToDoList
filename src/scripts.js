@@ -35,10 +35,10 @@ const App = () =>{
         <div className="container mt-5">
             <div className="row">
                 <div className="col-lg-4 col-md-4 col-sm-4"></div>
-                <div className="col-lg-4 col-md-4 col-sm-4">
+                <div className="col-lg-4 col-md-4 col-sm-4 main">
                     <h1 className="text-light text-center bg-dark">ToDoList</h1>
                     <input type="text" value={newTaskText} onChange={onInputChnage} className="form-control my-4" placeholder="Enter new task"></input>
-                    <button onClick = {AddnewTask} className="btn btn-md btn-primary">+Add</button>
+                    <button onClick = {AddnewTask} className="btn btn-md btn-dark">+Add</button>
                     <ul className="mt-3">
                         {tasks.map((task, taskindex)=>{
                             const ontaskClicked = () =>{
