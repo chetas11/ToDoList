@@ -1,10 +1,17 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import ReactDOM from "react-dom";
 
 const App = () =>{
-
-    const [tasks, setTasks] = useState([{name:"Buy House",isComplete: false}, {name:"Buy Car",isComplete:false}])
+    const [tasks, setTasks] = useState(
+        localStorage.getItem("tasks")?JSON.parse(localStorage.getItem("tasks")):
+        [{name:"Buy House",isComplete: false}, {name:"Buy Car",isComplete:false}]
+        )
     const [newTaskText, setnewTaskText] = useState("New Task");
+
+    useEffect(() =>{
+        localStorage.setItem("tasks", JSON.stringify(tasks))
+    }, [tasks]);
+
     const onInputChnage = (e) =>{
         setnewTaskText(e.target.value)
     }
