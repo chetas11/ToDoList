@@ -29854,6 +29854,13 @@ var App = function App() {
     }));
   };
 
+  var deleteTask = function deleteTask(ClickedTasksIndex) {
+    var newTaskList = _toConsumableArray(tasks);
+
+    newTaskList.splice(ClickedTasksIndex, 1);
+    setTasks(newTaskList);
+  };
+
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "container mt-5"
   }, /*#__PURE__*/_react.default.createElement("div", {
@@ -29880,10 +29887,16 @@ var App = function App() {
       toggleTask(taskindex);
     };
 
-    return /*#__PURE__*/_react.default.createElement("li", {
+    var onDeleteClick = function onDeleteClick() {
+      deleteTask(taskindex);
+    };
+
+    return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("li", {
       onClick: ontaskClicked,
       key: taskindex
-    }, task.name, " ", task.isComplete ? "✔️" : "❌");
+    }, task.name, " ", task.isComplete ? "✔️" : "❌"), /*#__PURE__*/_react.default.createElement("button", {
+      onClick: onDeleteClick
+    }, "\uD83D\uDDD1\uFE0F"));
   }))), /*#__PURE__*/_react.default.createElement("div", {
     className: "col-lg-4 col-md-4 col-sm-4"
   })));
@@ -29918,7 +29931,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51838" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49796" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

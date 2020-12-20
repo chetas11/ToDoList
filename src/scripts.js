@@ -31,6 +31,12 @@ const App = () =>{
         )
     })
 
+    const deleteTask = (ClickedTasksIndex) =>{
+        const newTaskList = [...tasks]
+        newTaskList.splice(ClickedTasksIndex, 1)
+        setTasks(newTaskList)
+    }
+
     return(
         <div className="container mt-5">
             <div className="row">
@@ -44,7 +50,15 @@ const App = () =>{
                             const ontaskClicked = () =>{
                                 toggleTask(taskindex)
                             };
-                            return <li onClick={ontaskClicked} key={taskindex}>{task.name} {task.isComplete ? "✔️" : "❌"}</li>
+                            const onDeleteClick = ()=>{
+                                deleteTask(taskindex)
+                            }
+                            return(
+                             <>
+                             <li onClick={ontaskClicked} key={taskindex}>{task.name} {task.isComplete ? "✔️" : "❌"}</li>
+                                    <button onClick={onDeleteClick}>🗑️</button>
+                            </>
+                            )
                         })}
                     </ul>
                 </div>
