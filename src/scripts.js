@@ -48,8 +48,8 @@ const App = () =>{
         setTasks(newTaskList)
     }
 
-    // const NewDate = new Date();
-    // const Today = String(NewDate).substring(0,25)
+    const NewDate = new Date();
+    const Today = String(NewDate).substring(0,15)
 
 
     return(
@@ -58,7 +58,8 @@ const App = () =>{
                 <div className="col-lg-4 col-md-4 col-sm-4"></div>
                 <div className="col-lg-4 col-md-4 col-sm-4 main">
                     <h1 className="text-light text-center bg-dark">ToDoList</h1>
-                    <input ref={InputFieldRef} type="text" value={newTaskText} onChange={onInputChnage} className="form-control my-4" placeholder="Enter new task"></input>
+                    <input ref={InputFieldRef} type="text" value={newTaskText} onChange={onInputChnage} className="form-control my-4 mb-1" placeholder="Enter new task"></input>
+                    <p className="date">{Today}</p>
                     <button onClick = {AddnewTask} className="btn btn-md btn-dark">+Add</button>
                     <ul className="mt-3">
                         {tasks.map((task, taskindex)=>{

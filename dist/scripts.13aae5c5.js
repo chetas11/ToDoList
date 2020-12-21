@@ -29889,10 +29889,10 @@ var App = function App() {
 
     newTaskList.splice(ClickedTasksIndex, 1);
     setTasks(newTaskList);
-  }; // const NewDate = new Date();
-  // const Today = String(NewDate).substring(0,25)
+  };
 
-
+  var NewDate = new Date();
+  var Today = String(NewDate).substring(0, 15);
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "container mt-5"
   }, /*#__PURE__*/_react.default.createElement("div", {
@@ -29908,9 +29908,11 @@ var App = function App() {
     type: "text",
     value: newTaskText,
     onChange: onInputChnage,
-    className: "form-control my-4",
+    className: "form-control my-4 mb-1",
     placeholder: "Enter new task"
-  }), /*#__PURE__*/_react.default.createElement("button", {
+  }), /*#__PURE__*/_react.default.createElement("p", {
+    className: "date"
+  }, Today), /*#__PURE__*/_react.default.createElement("button", {
     onClick: AddnewTask,
     className: "btn btn-md btn-dark"
   }, "+Add"), /*#__PURE__*/_react.default.createElement("ul", {
