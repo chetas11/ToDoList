@@ -29772,12 +29772,36 @@ if ("development" === 'production') {
 } else {
   module.exports = require('./cjs/react-dom.development.js');
 }
-},{"./cjs/react-dom.development.js":"node_modules/react-dom/cjs/react-dom.development.js"}],"src/scripts.js":[function(require,module,exports) {
+},{"./cjs/react-dom.development.js":"node_modules/react-dom/cjs/react-dom.development.js"}],"src/components/useFocus.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = require("react");
+
+var useFocus = function useFocus() {
+  var targetFieldRef = (0, _react.useRef)();
+  (0, _react.useEffect)(function () {
+    var _targetFieldRef$curre;
+
+    (_targetFieldRef$curre = targetFieldRef.current) === null || _targetFieldRef$curre === void 0 ? void 0 : _targetFieldRef$curre.focus();
+  }, []);
+  return targetFieldRef;
+};
+
+var _default = useFocus;
+exports.default = _default;
+},{"react":"node_modules/react/index.js"}],"src/scripts.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireWildcard(require("react"));
 
 var _reactDom = _interopRequireDefault(require("react-dom"));
+
+var _useFocus = _interopRequireDefault(require("./components/useFocus"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -29812,7 +29836,7 @@ function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 var App = function App() {
-  var _useState = (0, _react.useState)([{
+  var _useState = (0, _react.useState)(localStorage.getItem("tasks") ? JSON.parse(localStorage.getItem("tasks")) : [{
     name: "Buy House",
     isComplete: false
   }, {
@@ -29828,9 +29852,15 @@ var App = function App() {
       newTaskText = _useState4[0],
       setnewTaskText = _useState4[1];
 
+  (0, _react.useEffect)(function () {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }, [tasks]);
+
   var onInputChnage = function onInputChnage(e) {
     setnewTaskText(e.target.value);
   };
+
+  var InputFieldRef = (0, _useFocus.default)();
 
   var AddnewTask = function AddnewTask(e) {
     if (newTaskText) {
@@ -29872,6 +29902,7 @@ var App = function App() {
   }, /*#__PURE__*/_react.default.createElement("h1", {
     className: "text-light text-center bg-dark"
   }, "ToDoList"), /*#__PURE__*/_react.default.createElement("input", {
+    ref: InputFieldRef,
     type: "text",
     value: newTaskText,
     onChange: onInputChnage,
@@ -29894,16 +29925,17 @@ var App = function App() {
     return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("li", {
       onClick: ontaskClicked,
       key: taskindex
-    }, task.name, " ", task.isComplete ? "✔️" : "❌"), /*#__PURE__*/_react.default.createElement("button", {
+    }, task.name, " ", task.isComplete ? "✔️" : "❌"), /*#__PURE__*/_react.default.createElement("i", {
+      class: "fas fa-trash",
       onClick: onDeleteClick
-    }, "\uD83D\uDDD1\uFE0F"));
+    }));
   }))), /*#__PURE__*/_react.default.createElement("div", {
     className: "col-lg-4 col-md-4 col-sm-4"
   })));
 };
 
 _reactDom.default.render( /*#__PURE__*/_react.default.createElement(App, null), document.querySelector('#react-root'));
-},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","./components/useFocus":"src/components/useFocus.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -29931,7 +29963,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49796" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57315" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

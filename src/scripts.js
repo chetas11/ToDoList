@@ -1,11 +1,12 @@
 import React, {useState, useEffect} from "react";
 import ReactDOM from "react-dom";
+import useFocus from "./components/useFocus";
 
 const App = () =>{
     const [tasks, setTasks] = useState(
         localStorage.getItem("tasks")?JSON.parse(localStorage.getItem("tasks")):
         [{name:"Buy House",isComplete: false}, {name:"Buy Car",isComplete:false}]
-        )
+    )
     const [newTaskText, setnewTaskText] = useState("New Task");
 
     useEffect(() =>{
@@ -15,6 +16,9 @@ const App = () =>{
     const onInputChnage = (e) =>{
         setnewTaskText(e.target.value)
     }
+
+    const InputFieldRef = useFocus()
+
     const AddnewTask = (e) =>{
         if(newTaskText){
         setTasks([...tasks, {
@@ -50,7 +54,7 @@ const App = () =>{
                 <div className="col-lg-4 col-md-4 col-sm-4"></div>
                 <div className="col-lg-4 col-md-4 col-sm-4 main">
                     <h1 className="text-light text-center bg-dark">ToDoList</h1>
-                    <input type="text" value={newTaskText} onChange={onInputChnage} className="form-control my-4" placeholder="Enter new task"></input>
+                    <input ref={InputFieldRef} type="text" value={newTaskText} onChange={onInputChnage} className="form-control my-4" placeholder="Enter new task"></input>
                     <button onClick = {AddnewTask} className="btn btn-md btn-dark">+Add</button>
                     <ul className="mt-3">
                         {tasks.map((task, taskindex)=>{
@@ -63,7 +67,7 @@ const App = () =>{
                             return(
                              <>
                              <li onClick={ontaskClicked} key={taskindex}>{task.name} {task.isComplete ? "✔️" : "❌"}</li>
-                                    <button onClick={onDeleteClick}>🗑️</button>
+                             <i class="fas fa-trash" onClick={onDeleteClick}></i>
                             </>
                             )
                         })}
