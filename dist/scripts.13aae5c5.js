@@ -29889,7 +29889,9 @@ var App = function App() {
 
     newTaskList.splice(ClickedTasksIndex, 1);
     setTasks(newTaskList);
-  };
+  }; // const NewDate = new Date();
+  // const Today = String(NewDate).substring(0,25)
+
 
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "container mt-5"
@@ -29926,7 +29928,7 @@ var App = function App() {
       onClick: ontaskClicked,
       key: taskindex
     }, task.name, " ", task.isComplete ? "✔️" : "❌"), /*#__PURE__*/_react.default.createElement("i", {
-      class: "fas fa-trash",
+      className: "fas fa-trash",
       onClick: onDeleteClick
     }));
   }))), /*#__PURE__*/_react.default.createElement("div", {

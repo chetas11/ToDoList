@@ -48,6 +48,10 @@ const App = () =>{
         setTasks(newTaskList)
     }
 
+    // const NewDate = new Date();
+    // const Today = String(NewDate).substring(0,25)
+
+
     return(
         <div className="container mt-5">
             <div className="row">
@@ -67,11 +71,12 @@ const App = () =>{
                             return(
                              <>
                              <li onClick={ontaskClicked} key={taskindex}>{task.name} {task.isComplete ? "✔️" : "❌"}</li>
-                             <i class="fas fa-trash" onClick={onDeleteClick}></i>
+                             <i className="fas fa-trash" onClick={onDeleteClick}></i>
                             </>
                             )
                         })}
                     </ul>
+                    
                 </div>
                 <div className="col-lg-4 col-md-4 col-sm-4"></div>
             </div>
